@@ -30,3 +30,6 @@ def transcribe():
   os.remove(file_path)
 
   return jsonify({'transcription': transcription})
+
+if __name__ == '__main__':
+  app.run()
