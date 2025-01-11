@@ -37,12 +37,12 @@ def transcribe():
 
     try:
       result = r.recognize_google(sound)
+      os.remove(wav_path)
     except sr.UnknownValueError:
       result = "Google Speech Recognition could not understand audio"
     except sr.RequestError as e:
       result = "Could not request results from Google Speech Recognition service"
     finally:
-      os.remove(wav_path)
       return jsonify({'transcription': result})
   
 if __name__ == '__main__':
